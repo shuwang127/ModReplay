@@ -31,16 +31,17 @@ end
 addpath('signalproc');
 freqResp = zeros(size(freqList));
 for i = 1 : length(freqList)
-    freq = freqList(i);
+%     freq = freqList(i);
     seg = sig( sl(i):(el(i)-1) );
-    [ f, amp, ~ ] = fastFT( seg(10:end-10), fs );
-    % interpolation method
-    idx = find(freq < f, 1);
-    li = freq - f(idx-1);
-    ui = f(idx) - freq;
-    freqResp(i) = (ui * amp(idx-1) + li * amp(idx)) / (ui + li);
-    % max value method
-    % freqResp(i) = max( amp(1:end-1) );
+%     [ f, amp, ~ ] = fastFT( seg(10:end-10), fs );
+%     % interpolation method
+%     idx = find(freq < f, 1);
+%     li = freq - f(idx-1);
+%     ui = f(idx) - freq;
+%     freqResp(i) = (ui * amp(idx-1) + li * amp(idx)) / (ui + li);
+%     % max value method
+%     % freqResp(i) = max( amp(1:end-1) );
+    freqResp(i) = amplitudeStat(seg(10:end-10), 10);
 end
 freqResp( freqResp < ep ) = ep;
 
