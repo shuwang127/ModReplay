@@ -47,6 +47,7 @@ for i = 1 : segN
     end
 end
 yr = [ zeros(2*fs, chn) ; yr ; zeros(2*fs, chn)];
+yr = yr ./ max(abs(yr));
 % plot(yr);
 audiowrite([save_path, 'modulated.wav'], yr, fs);
 
