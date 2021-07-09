@@ -1,2 +1,2 @@
-# Kitsune V2
+# ModReplay
 Modulated Replay Attack and its Dual-Domain Countermeasures (DualGuad).
