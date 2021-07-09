@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-180261057-1"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'UA-180261057-1');
+		</script>
+		<title>Modulated Replay Attack</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Modreplay">
+		<meta name="author" content="">
+		<link href="materials/css/bootstrap.css" rel="stylesheet">
+		<link href="materials/css/modreplay.css" rel="stylesheet">
+	</head>
+	
+	<body>
+
+		<nav class="navbar navbar-fixed-top navbar-expand-lg" role="navigation" style="background-color: #f5f8fa;">
+			<div class="container">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="https://shuwang127.github.io">Back to Homepage</a>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse navbar-ex1-collapse">
+					<ul class="nav navbar-nav">
+						<li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+						<li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+						<li class="nav-item"><a class="nav-link" href="#qa">Q&amp;A</a></li>
+						<li class="nav-item"><a class="nav-link" href="#ack">Acknowledgments</a></li>
+						<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li class="dropdown-header">Related Projects</li>
+								<li><a href="https://shuwang127.github.io/SIEVE">SIEVE</a></li>
+								<!-- <li role="separator" class="divider"></li> -->
+							</ul>
+						</li>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</div><!-- /.container -->
+		</nav>
+
+		<div class="header-image">
+			<div class="headline">
+				<div class="container">
+					<h1>When the Differences in Frequency Domain are Compensated:</h1>
+					<h2>Understanding and Defeating Modulated Replay Attacks on Automatic Speech Recognition</h2>
+				</div>
+			</div>
+		</div><!-- /header-image -->
+
+		<div class="container">
+		
+			<!-- START THE FEATURETTES -->
+			<div class="featurette" id="about">
+				<!-- About -->
+				<hr class="featurette-divider">
+				<h2 class="featurette-heading">About</h2>
+				<h2 class="featurette-heading2">Modulated Replay Attack</h2>
+					<p class="lead" style="text-align:justify">Automatic speech recognition (ASR) systems have been widely deployed in modern smart devices to provide convenient and diverse voice-controlled services. Since ASR systems are vulnerable to audio replay attacks that can spoof and mislead ASR systems, a number of defense systems have been proposed to identify replayed audio signals based on the speakers’ unique acoustic features in the frequency domain. In our <a href="https://shuwang127.github.io/papers/ccs20_ModReplay.pdf" target="_blank">paper</a>, we uncover a new type of replay attack called <b>modulated replay attack</b>, which can bypass the existing frequency domain based defense systems.</p>
+					<img class="featurette-image1 img-square img-responsive pull-center" src="materials/img/modreplay.png">
+					<p class="lead" style="text-align:justify">The basic idea is to compensate for the frequency distortion of a given electronic speaker using an <em>inverse filter</em> that is customized to the speaker’s transform characteristics. Our experiments on real smart devices confirm the modulated replay attacks can successfully escape the existing detection mechanisms that rely on identifying suspicious features in the frequency domain.</p>
+				<h2 class="featurette-heading2">DualGuard Defense</h2>
+					<p class="lead" style="text-align:justify">To defeat modulated replay attacks, we design and implement a countermeasure named <b>DualGuard</b>. We discover and formally prove that no matter how the replay audio signals could be modulated, the replay attacks will either leave <em>ringing artifacts</em> in the time domain or cause <em>spectrum distortion</em> in the frequency domain. Therefore, by jointly checking suspicious features in both frequency and time domains, DualGuard can successfully detect various replay attacks including the modulated replay attacks. We implement a prototype of DualGuard on a popular voice interactive platform, ReSpeaker Core v2. The experimental results show DualGuard can achieve 98% accuracy on detecting modulate replay attacks.</p>
+					<img class="featurette-image2 img-square img-responsive pull-center" src="materials/img/testbed.png">
+				<p class="lead">Published in <a href="https://www.sigsac.org/ccs/CCS2020/" target="_blank">the ACM Conference on Computer and Communications Security (CCS) 2020.</a></p>	
+				<p align="center">
+					<a class="btn btn-primary btn-lg" role="button" style="margin-right:10px;" href="https://shuwang127.github.io/papers/ccs20_ModReplay.pdf" target="_blank">Download the Paper</a>
+					<a class="btn btn-primary btn-lg" role="button" style="margin-right:10px;" href="https://shuwang127.github.io/papers/ccs20_ModReplay_slides.pdf" target="_blank">Slides</a>
+					<a class="btn btn-primary btn-lg" role="button" style="margin-right:10px;" href="https://shuwang127.github.io/papers/ccs20_ModReplay_poster.pdf" target="_blank">Poster</a>
+					<a class="btn btn-primary btn-lg" role="button" style="margin-right:10px;" href="https://www.github.com/shuwang127/ModReplay" target="_blank">Code</a>
+					<a class="btn btn-primary btn-lg" role="button" data-toggle="collapse" href="#bibtex" aria-expanded="false" aria-controls="bibtex">Export Citation</a>
+				</p>
+				<div class="collapse" style="margin-top: 1.5em;" align="left" id="bibtex" >
+					<pre style="white-space: pre">
+@inproceedings{wang2020modreplay,
+author = {Wang, Shu and Cao, Jiahao and He, Xu and Sun, Kun and Li, Qi},
+title = {When the Differences in Frequency Domain Are Compensated: Understanding and Defeating Modulated Replay Attacks on Automatic Speech Recognition},
+year = {2020},
+isbn = {9781450370899},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3372297.3417254},
+doi = {10.1145/3372297.3417254},
+booktitle = {Proceedings of the 2020 ACM SIGSAC Conference on Computer and Communications Security},
+pages = {1103–1119},
+numpages = {17},
+keywords = {ringing artifacts, automatic speech recognition, modulated replay attack, frequency distortion},
+location = {Virtual Event, USA},
+series = {CCS '20}
+}
+</pre>
+				</div>
+			</div>
+			
+			<!-- Team -->
+			<div class="featurette" id="team">
+				<hr class="featurette-divider">
+				<h2 class="featurette-heading">Team</h2>
+				<p class="lead">Modulated replay attack and the DualGuad defense were proposed by the following academic researchers:</p>
+				<ul>
+					<li class="lead"><strong><a href="https://shuwang127.github.io/" target="_blank">Shu Wang</a></strong> at <a href="https://www2.gmu.edu/" target="_blank">George Mason University</a></li>
+					<li class="lead"><strong><a href="http://routing.netlab.edu.cn/tiki-index.php?page=Jiahao+Cao" target="_blank">Jiahao Cao</a></strong> at <a href="https://www.tsinghua.edu.cn/en/" target="_blank">Tsinghua University</a></li>
+					<li class="lead"><strong><a href="https://sites.google.com/view/hexu/" target="_blank">Xu He</a></strong> at <a href="https://www2.gmu.edu/" target="_blank">George Mason University</a></li>
+					<li class="lead"><strong><a href="https://csis.gmu.edu/ksun/" target="_blank">Kun Sun</a></strong> at <a href="https://www2.gmu.edu/" target="_blank">George Mason University</a></li>
+					<li class="lead"><strong><a href="http://netsec.ccert.edu.cn/people/qli/" target="_blank">Qi Li</a></strong> at <a href="https://www.tsinghua.edu.cn/en/" target="_blank">Tsinghua University</a></li>
+				</ul>
+				<div class="text-center mt-auto" style="width: 90%; margin-top: 1.5em; margin-bottom: 1.5em; display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap;">
+					<a href="https://www2.gmu.edu/" target="_blank">
+						<img width="250px" src="materials/img/gmu_logo.png" alt="George Mason University logo" class="img-fluid" />
+					</a>
+					<a href="https://csis.gmu.edu/" target="_blank">
+						<img width="150px" src="materials/img/csis.png" alt="CSIS logo" class="img-fluid" />
+					</a>
+					<a href="https://www.tsinghua.edu.cn/en/" target="_blank">
+						<img width="400px" src="materials/img/tsinghua.png" alt="Tsinghua University logo" class="img-fluid" />
+					</a>
+				</div>
+			</div>
+			
+			<!-- Q&A 
+			<div class="featurette" id="qa">
+				<hr class="featurette-divider">
+				<h2 class="featurette-heading">Q&amp;A</h2>
+				<ul>
+					<li class="lead question">How to design the inverse filter?</li>
+					<p class="lead">How to design the inverse filter?</p>
+				</ul>
+				<ul>
+					<li class="lead question">How to design the inverse filter?</li>
+					<p class="lead">How to design the inverse filter?</p>
+				</ul>
+			</div>-->
+			
+			<!-- Acknowledgments -->
+			<div class="featurette" id="ack">
+				<hr class="featurette-divider">
+				<h2 class="featurette-heading">Acknowledgments</h2>
+				<p class="lead">This work is partially supported by the U.S. ARO grant W911NF17-1-0447, U.S. ONR grants N00014-18-2893 and N00014-16-1-3214, and the NSFC grants U1736209 and 61572278.</p>
+			</div>
+			<!-- /END THE FEATURETTES -->
+			<hr>
+
+			<!-- FOOTER -->
+			<footer>
+				<p>Copyright &copy; 2020 Shu Wang. All rights reserved. &#10045 Last updated: November, 2020.</p>
+			</footer>
+			<!-- /END OF FOOTER -->
+			
+		</div><!-- /container -->
+
+		<!-- JavaScript -->
+		<script src="materials/js/jquery-1.10.2.js"></script>
+		<script src="materials/js/bootstrap.js"></script>
+		
+	</body>
+</html>
